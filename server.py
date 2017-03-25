@@ -3,6 +3,8 @@ from paste.translogger import TransLogger
 from app import create_app
 from pyspark import SparkContext, SparkConf
 
+os.environ['HADOOP_HOME'] = "C:/Users/Admin/Downloads/spark-2.1.0-bin-hadoop2.7"
+sys.path.append("C:/Users/Admin/Downloads/spark-2.1.0-bin-hadoop2.7/bin")
 
 def init_spark_context():
     # load spark context
@@ -24,7 +26,7 @@ def run_server(app):
     cherrypy.config.update({
         'engine.autoreload.on': True,
         'log.screen': True,
-        'server.socket_port': 5432,
+        'server.socket_port': 5433,
         'server.socket_host': '0.0.0.0'
     })
 
